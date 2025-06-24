@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"  # Ollama API port
+    volumes:
+      - ollama_data:/root/.ollama  # Persistent model storage
+    restart: unless-stopped
+    tty: true
+
+volumes:
+  ollama_data:
